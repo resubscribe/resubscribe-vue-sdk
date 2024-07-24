@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { useStore, Options } from '../store';
-import { getTitle, getDescription, isDarkColor, AIType } from '../util';
+import { getTitle, getDescription, isDarkColor, AIType, registerConsent } from '../util';
 import Backdrop from './Backdrop.vue';
 import DialogModal from './DialogModal.vue';
 import ChatModal from './ChatModal.vue';
@@ -16,6 +16,7 @@ const isDark = computed(() => !state.options?.colors?.background ? false : isDar
   <Backdrop v-if="state.state !== 'closed'" :isDark="isDark" :class="state.options?.classNames?.overlay">
     <DialogModal v-if="state.state === 'confirming'" :backgroundColor="state.options?.colors?.background || 'white'"
       :color="state.options?.colors?.text" :class="state.options?.classNames?.modal">
+      {{registerConsent(state.options as Options)}}
       <div class="title">
         {{ state.options?.title || getTitle(state.options?.aiType as AIType) }}
       </div>
