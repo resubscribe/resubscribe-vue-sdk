@@ -19,6 +19,9 @@ const props = defineProps<{
 
 <style scoped>
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1;
     text-align: center;
     padding: 0.5rem 0.75rem;
