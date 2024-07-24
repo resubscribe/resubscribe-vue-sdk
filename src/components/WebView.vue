@@ -1,5 +1,5 @@
 <template>
-    <iframe :src="url" width="100%" height="100%" style="border: none; display: block;" />
+    <iframe :src="url" width="100%" height="100%" style="border: none; border-radius: 8px; display: block;" />
     <div style="position: absolute; top: 16px; right: 10px; height: 32px; width: 32px; display: flex; justify-content: center; align-items: center; cursor: pointer;"
         @click="confirmClose">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
