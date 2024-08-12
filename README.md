@@ -24,6 +24,7 @@ import Resubscribe from 'resubscribe-vue-sdk'
 const onTrigger = () => {
     Resubscribe.openWithConsent({
         slug: '{organization-slug}',
+        apiKey: '{api-key}',
         aiType: '{ai-type}',
         userId: '{uid}',
         userEmail: '{optionalEmail}',
@@ -55,6 +56,7 @@ import Resubscribe from 'resubscribe-vue-sdk'
 const handleClick = () => {
     Resubscribe.headless.setOptions({
         slug: '{organization-slug}',
+        apiKey: '{api-key}',
         aiType: '{ai-type}',
         userId: '{uid}',
         userEmail: '{optionalEmail}',

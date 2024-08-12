@@ -2,6 +2,7 @@ import { reactive } from 'vue';
 
 export interface Options {
   slug: string;
+  apiKey: string;
   aiType: string;
   userId: string;
   userEmail?: string;

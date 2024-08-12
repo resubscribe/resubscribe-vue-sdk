@@ -16,6 +16,7 @@ import { useStore } from '../store';
 
 interface Options {
     aiType: string;
+    apiKey: string;
     userId: string;
     userEmail?: string;
     slug: string;
@@ -33,7 +34,8 @@ const url = computed(() => {
         'iframe': 'true',
         'hideclose': 'true',
     };
-    return `${baseUrl}/chat/${props.options.slug}?${Object.entries(queryParams).filter(([_, value]) => value !== undefined).map(([key, value]) => `${key}=${encodeURIComponent(String(value))}`).join('&')}`;
+    const ret = `${baseUrl}/chat/${props.options.slug}?${Object.entries(queryParams).filter(([_, value]) => value !== undefined).map(([key, value]) => `${key}=${encodeURIComponent(String(value))}`).join('&')}`;
+    return ret + (props.options.apiKey ? "#apiKey=" + props.options.apiKey : "");
 });
 
 const confirmClose = () => {
