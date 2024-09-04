@@ -7,7 +7,7 @@ export const baseUrl = 'https://app.resubscribe.ai';
 export const apiUrl = 'https://api.resubscribe.ai';
 export const domain = 'app.resubscribe.ai';
 
-export const version = `vue-${packageJson.version}`;
+export const version = `vue:${packageJson.version}`;
 
 export const api = {
     get: async (
