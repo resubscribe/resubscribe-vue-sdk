@@ -1,4 +1,5 @@
 import Color from 'color';
+import packageJson from '../package.json';
 
 import { Options } from './store';
 
@@ -6,13 +7,18 @@ export const baseUrl = 'https://app.resubscribe.ai';
 export const apiUrl = 'https://api.resubscribe.ai';
 export const domain = 'app.resubscribe.ai';
 
+export const version = `vue-${packageJson.version}`;
+
 export const api = {
     get: async (
         path: string,
         params: Record<string, string>,
         apiKey: string | undefined,
     ) => {
-        const query = Object.entries(params)
+        const query = Object.entries({
+            ...params,
+            v: version,
+        })
             .map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
         const url = `${apiUrl}/v1/${path}?${query}`;
         const response = await fetch(

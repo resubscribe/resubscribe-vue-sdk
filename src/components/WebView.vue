@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { defineProps, onMounted, onUnmounted, computed } from 'vue';
-import { baseUrl, domain } from '../util';
+import { baseUrl, domain, version } from '../util';
 import { useStore } from '../store';
 
 interface Options {
@@ -33,6 +33,7 @@ const url = computed(() => {
         'uid': props.options.userId,
         'email': props.options.userEmail,
         'metadata': JSON.stringify(props.options.metadata),
+        'v': version,
         'iframe': 'true',
         'hideclose': 'true',
     };

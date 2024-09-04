@@ -34,7 +34,10 @@ const onTrigger = () => {
             text: '#333',
         },
         metadata: {
-            'custom-key': 'custom-value',
+            'string-key': 'custom-value',
+            'number-key': 123,
+            'boolean-key': true,
+            'null-key': null,
         },
     })
 }
