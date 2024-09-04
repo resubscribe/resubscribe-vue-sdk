@@ -7,8 +7,13 @@ export const apiUrl = 'https://api.resubscribe.ai';
 export const domain = 'app.resubscribe.ai';
 
 export const api = {
-    get: async (path: string, params: Record<string, string | null | undefined>, apiKey: string | undefined) => {
-        const query = Object.entries(params).filter(([key, value]) => value).map(([key, value]) => `${key}=${value}`).join('&');
+    get: async (
+        path: string,
+        params: Record<string, string>,
+        apiKey: string | undefined,
+    ) => {
+        const query = Object.entries(params)
+            .map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
         const url = `${apiUrl}/v1/${path}?${query}`;
         const response = await fetch(
             url,
@@ -37,12 +42,14 @@ export const getNavigatorLanguage = (): string | null => {
 };
 
 export const registerConsent = (options: Options) => {
-    const params: Record<string, any> = {
+    const navLang = getNavigatorLanguage();
+    const params: Record<string, string> = {
         slug: options.slug,
         uid: options.userId,
-        email: options.userEmail,
+        ...(options.userEmail ? {email: options.userEmail} : {}),
         ait: options.aiType,
-        brloc: getNavigatorLanguage(),
+        ...(navLang ? {brloc: navLang} : {}),
+        metadata: JSON.stringify(options.metadata),
     }
     api.get(
         'sessions/consent',

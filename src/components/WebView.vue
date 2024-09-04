@@ -20,6 +20,7 @@ interface Options {
     userId: string;
     userEmail?: string;
     slug: string;
+    metadata?: Record<string, string | number | boolean | null>;
 }
 
 const props = defineProps<{ options: Options }>();
@@ -31,6 +32,7 @@ const url = computed(() => {
         'ait': props.options.aiType,
         'uid': props.options.userId,
         'email': props.options.userEmail,
+        'metadata': JSON.stringify(props.options.metadata),
         'iframe': 'true',
         'hideclose': 'true',
     };

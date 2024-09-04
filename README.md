@@ -33,6 +33,9 @@ const onTrigger = () => {
             background: '#fff',
             text: '#333',
         },
+        metadata: {
+            'custom-key': 'custom-value',
+        },
     })
 }
 </script>
