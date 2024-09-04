@@ -49,7 +49,7 @@ export const registerConsent = (options: Options) => {
         ...(options.userEmail ? {email: options.userEmail} : {}),
         ait: options.aiType,
         ...(navLang ? {brloc: navLang} : {}),
-        metadata: JSON.stringify(options.metadata),
+        ...(options.metadata ? {metadata: JSON.stringify(options.metadata)} : {}),
     }
     api.get(
         'sessions/consent',
