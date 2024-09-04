@@ -6,6 +6,14 @@ The official Vue SDK for [Resubscribe](https://resubscribe.ai).
 
 ## Setup
 
+### Install
+
+```bash
+npm install resubscribe-vue-sdk
+```
+
+### Usage
+
 First register Resubscribe with Vue where you are mounting the app.
 
 ```typescript
@@ -32,6 +40,12 @@ const onTrigger = () => {
             primary: '#31B15F',
             background: '#fff',
             text: '#333',
+        },
+        metadata: {
+            'string-key': 'custom-value',
+            'number-key': 123,
+            'boolean-key': true,
+            'null-key': null,
         },
     })
 }

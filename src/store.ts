@@ -19,6 +19,7 @@ export interface Options {
   description?: string;
   primaryButtonText?: string;
   cancelButtonText?: string;
+  metadata?: Record<string, string | number | boolean | null>;
   onClose?: (via: 'cancel-consent' | 'close') => void;
 }
 
