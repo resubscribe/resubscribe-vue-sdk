@@ -6,6 +6,14 @@ The official Vue SDK for [Resubscribe](https://resubscribe.ai).
 
 ## Setup
 
+### Install
+
+```bash
+npm install resubscribe-vue-sdk
+```
+
+### Usage
+
 First register Resubscribe with Vue where you are mounting the app.
 
 ```typescript
